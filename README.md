@@ -1,0 +1,2 @@
+# aifasthub
+AI快站是专为AI开发者打造的HuggingFace资源镜像加速服务网站。
