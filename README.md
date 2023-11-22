@@ -1,20 +1,23 @@
 # AI快站
 
-**AI快站** 是专为AI开发者打造的**HuggingFace**资源镜像加速服务网站。我们致力于解决大模型下载时面临的各种问题，如：下载时间过长、连接经常断开、反复重试等，并为您提供镜像加速和断点续传功能。
+**AI快站** 是专为AI开发者打造的**HuggingFace**资源镜像加速服务网站。我们致力于解决大模型下载时面临的各种问题，如：下载时间过长、连接经常断开、反复重试等，并为您提供镜像加速和断点续传功能。网站下载速度可以达到**4M/s**。
+<p align="center">
+    <img src="https://aifasthub.com/models/webdata/speed.png"/>
+<p>
 
 ## 加速下载
 关注微信公众号回复消息 **“AI快站”** ，获取模型加速下载通道。
 <p align="center">
     <img src="https://aifasthub.com/models/webdata/gongzonghao.jpg" width="200"/>
 <p>
-<br>
+
 
 ## 技术交流群
 如有未收录模型文件，请在微信群提交。
 <p align="center">
     <img src="https://aifasthub.com/models/webdata/aifasthub-weixin.png" width="200"/>
 <p>
-<br>
+
 
 ## 模型资源
 - **国内厂商模型**
