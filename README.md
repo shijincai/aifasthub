@@ -20,6 +20,37 @@
     <img src="https://aifasthub.com/models/webdata/aifasthub-weixin.png" width="200"/>
 <p>
 
+## 模型下载
+### 方法1：下载器批量下载
+1. 下载器客户端
+   支持Linux、Windows、Mac系统，可批量下载模型目录里所有文件，**目前仅支持单线程下载**。
+   
+   下载地址：  [Linux](https://aifasthub.com/models/webdata/aifasthubdl.linux.zip)  [Windows](https://aifasthub.com/models/webdata/aifasthubdl.exe.zip)  [Mac](https://aifasthub.com/models/webdata/aifasthubdl.mac.zip)
+
+2.  使用方法
+```shell
+./aifasthubdl.linux -h
+Usage: aifasthubdl.linux [OPTIONS] --m <M>
+
+Options:
+  -m, --m <M>
+          模型地址，例如： https://aifasthub.com/models/01-ai/Yi-6B
+  -o, --o <O>
+          保存目录，例如： ./ [default: ./]
+  -h, --help
+          Print help
+  -V, --version
+          Print version
+
+#例如
+./aifasthubdl.linux -o ./test -m https://aifasthub.com/models/01-ai/Yi-6B
+#-o 指定模型本地保存目录
+#-m AI快站模型URL
+```
+
+### 方法2：从网站页面直接下载
+查找确认模型文件后，复制模型URL逐个下载模型文件。
+
 
 ## 模型资源
 - **国内厂商模型**
