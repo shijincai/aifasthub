@@ -1,55 +1,75 @@
 # AI快站
 
 **AI快站** 是一个专注于提供HuggingFace模型**免费加速下载**服务的平台，旨在为AI开发者解决大模型下载中的常见问题。<br>
-我们的服务包括高效的镜像加速和断点续传功能，确保下载过程既快速又稳定。在AI快站，可以体验到高达**4M/s**的下载速度，大幅减少等待时间。我们的平台专为解决HuggingFace大模型下载的缓慢速度和频繁断开问题而设计，提供一个更加便捷、高效的下载体验。
+我们的服务包括高效的镜像加速和断点续传功能，确保下载过程既快速又稳定。在AI快站，可以体验到高达**10M/s**的下载速度，大幅减少等待时间。我们的平台专为解决HuggingFace大模型下载的缓慢速度和频繁断开问题而设计，提供一个更加便捷、高效的下载体验。
 
-<p align="center">
-    <img src="https://aifasthub.com/models/webdata/speed.png"/>
-<p>
+## 🚀 为什么选择AI快站？
 
-## 加速下载
-关注微信公众号回复消息 **“AI快站”** ，获取高达**4M/s**的模型加速下载通道。
-<p align="center">
-    <img src="https://aifasthub.com/models/webdata/gongzonghao.jpg" width="200"/>
-<p>
+### ⚡️ 超快下载速度
+独特的加速技术，模型下载速度最高可达10M/s+，比直接下载快10倍以上。
 
+### 🔄 断点续传支持
+支持断点续传功能，解决大模型下载中断的烦恼，确保下载100%完成。
 
-## 技术交流群
-如有未收录模型文件，请在微信群提交。
-<p align="center">
-    <img src="https://aifasthub.com/models/webdata/aifasthub-weixin.png" width="200"/>
-<p>
+### 🆓 免费使用
+作为公益项目，下载服务免费使用，让每个开发者都能便捷访问AI资源。
 
-## 模型下载
-### 方法1：下载器批量下载
-1. 下载器客户端
-   支持Linux、Windows、Mac系统，可批量下载模型目录里所有文件，**目前仅支持单线程下载**。
-   
-   下载地址：  [Linux](https://aifasthub.com/models/webdata/aifasthubdl.linux.zip)  [Windows](https://aifasthub.com/models/webdata/aifasthubdl.exe.zip)  [Mac](https://aifasthub.com/models/webdata/aifasthubdl.mac.zip)
+## 📖 HuggingFace加速使用教程
 
-2.  使用方法
+### 1. 网页在线访问
+直接通过AI快站搜索并访问模型、数据集页面，所有资源都会自动通过我们的加速节点访问。
+
+### 2. 命令行工具下载
+hf-fast.sh，是本站开发的 huggingface 专用下载工具，基于成熟工具 aria2，可以做到稳定高速下载不断线。支持主流Linux、Mac等系统。
+
+hf-fast.py，基于 Python 原生 HTTP 库实现，支持多线程并发下载、断点续传和大文件加速，可在 Windows、Linux、Mac 等主流系统上实现稳定高速下载。
+
+hf-fast.sh和hf-fast.py使用方法相同，请选择一种下载方式即可。
+
+#### 基础使用
 ```shell
-./aifasthubdl.linux -h
-Usage: aifasthubdl.linux [OPTIONS] --m <M>
-
-Options:
-  -m, --m <M>
-          模型地址，例如： https://aifasthub.com/models/01-ai/Yi-6B
-  -o, --o <O>
-          保存目录，例如： ./ [default: ./]
-  -h, --help
-          Print help
-  -V, --version
-          Print version
-
-#例如
-./aifasthubdl.linux -o ./test -m https://aifasthub.com/models/01-ai/Yi-6B
-#-o 指定模型本地保存目录
-#-m AI快站模型URL
+#下载hf-fast.sh
+wget https://fast360.xyz/images/hf-fast.sh
+chmod a+x hf-fast.sh
+#下载hf-fast.py
+wget https://fast360.xyz/images/hf-fast.py
+chmod a+x hf-fast.py
+#下载AI模型
+./hf-fast.sh gpt2
+#下载数据集
+./hf-fast.sh -d squad
 ```
+#### 完整使用说明
+```shell
+Usage: hf-fast [OPTIONS] REPO_ID
+Download files from Hugging Face model hub with acceleration.
+Options:
+-i, --include PATTERN Include files matching pattern (can be used multiple times)
+-e, --exclude PATTERN Exclude files matching pattern (can be used multiple times)
+-t, --token TOKEN Hugging Face token for private repos
+-r, --revision REV Repository revision/tag (default: main)
+-d, --dataset Download dataset instead of model
+-j, --jobs N Number of concurrent downloads (default: 4)
+-o, --output DIR Output directory (default: current directory)
+--endpoint URL API endpoint (default: https://aifasthub.com)
+--debug Enable debug mode
+-h, --help Display this help message
+Examples:
+./hf-fast.sh gpt2 # Download gpt2 model
+./hf-fast.sh -d squad # Download squad dataset
+./hf-fast.sh -i ".bin" -e ".md" gpt2 # Download only .bin files, exclude .md
+./hf-fast.sh -t $HF_TOKEN -j 8 llama-2 # Download with token using 8 threads
+./hf-fast.sh --debug gpt2 # Download with debug information
+```
+## ❓ 常见问题
 
-### 方法2：从网站页面直接下载
-查找确认模型文件后，复制模型URL逐个下载模型文件。
+### 需要登录的资源如何下载？
+对于需要登录的资源，请先在HuggingFace官网完成登录和授权，然后使用Access Token通过命令行工具下载：
+```shell
+./hf-fast.sh -t YOUR_TOKEN model_name
+```
+### 下载速度不稳定怎么办？
+建议使用断点续传功能，即使网络不稳定也能确保完整下载。同时我们会持续优化节点性能，提供更稳定的服务。
 
 
 ## 模型资源
