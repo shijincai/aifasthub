@@ -1,4 +1,7 @@
 #!/usr/bin/env bash
+# 本工具实现参考自HF-Mirror作者padeoe
+# 原代码库：https://gist.github.com/padeoe/697678ab8e528b85a2a7bddafea1fa4f
+# 特别感谢原作者对开源社区的贡献
 
 # 跨平台的numfmt包装函数
 numfmt_wrapper() {
